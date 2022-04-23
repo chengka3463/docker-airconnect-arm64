@@ -2,7 +2,7 @@
 # Remove the 'cross-buld' commands to build on a native ARM host
 
 # Balena base image required for cross-build capabilities
-FROM balenalib/raspberry-pi-alpine:3.11
+FROM lsiobase/ubuntu:bionic
 
 ### Run commands within QEMU ARM cross-build emulation ---------------------------------
 RUN [ "cross-build-start" ]
@@ -12,10 +12,10 @@ RUN install_packages wget
 # RUN wget https://github.com/philippe44/AirConnect/raw/0.2.51.1/bin/airupnp-arm-static && \
 #     wget https://github.com/philippe44/AirConnect/raw/0.2.51.1/bin/aircast-arm-static && \
 
-RUN wget https://github.com/philippe44/AirConnect/raw/14ecfa56f0e20b4a9e2615761ef34f7e92bc2128/bin/airupnp-arm-static && \
-    wget https://github.com/philippe44/AirConnect/raw/14ecfa56f0e20b4a9e2615761ef34f7e92bc2128/bin/aircast-arm-static && \
-    chmod +x airupnp-arm-static && \
-    chmod +x aircast-arm-static
+RUN wget https://github.com/philippe44/AirConnect/raw/14ecfa56f0e20b4a9e2615761ef34f7e92bc2128/bin/airupnp--aarch64-static && \
+    wget https://github.com/philippe44/AirConnect/raw/14ecfa56f0e20b4a9e2615761ef34f7e92bc2128/bin/aircast--aarch64-static && \
+    chmod +x airupnp-aarch64-static && \
+    chmod +x aircast-aarch64-static
 
 # setconfig.sh and setoptions.sh dynamically create the config.xml and options.txt files,
 # using environment variables (if present) to override defaults.
